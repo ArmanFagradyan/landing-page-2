@@ -1,0 +1,71 @@
+.mobile__nav__button {
+	/* Reset for button */
+	cursor: pointer;
+	padding: 0;
+	border: none;
+	background: transparent;
+
+	/* Nav icon styles*/
+	position: relative;
+	z-index: 999;
+	width: 40px;
+	height: 30px;
+	/* display: flex; */
+	justify-content: center;
+	align-items: center;
+
+    display: none;
+}
+
+@media (max-width: 991px){
+    .mobile__nav__button {
+        display: flex;
+    }
+}
+
+.mobile__nav__button__icon {
+	display: block;
+	position: relative;
+	width: 40px;
+	height: 5px;
+	background-color: #000;
+}
+
+.mobile__nav__button__icon::after,
+.mobile__nav__button__icon::before {
+	position: absolute;
+	content: '';
+	width: 40px;
+	height: 5px;
+	background-color: #000;
+    /* Трансформация при закрывании */
+	transition: transform 0.15s ease-in, top 0.15s ease-in 0.15s;
+}
+
+.mobile__nav__button__icon::before {
+	left: 0;
+	top: -10px;
+}
+
+.mobile__nav__button__icon::after {
+	left: 0;
+	top: 10px;
+}
+
+.mobile__nav__button__icon.active {
+	background-color: transparent;
+}
+
+.mobile__nav__button__icon.active::before {
+	transform: rotate(45deg);
+	top: 0;
+    /* Трансформация при открывании */
+	transition: top 0.15s linear, transform 0.15s ease-in 0.15s;
+}
+
+.mobile__nav__button__icon.active::after {
+	transform: rotate(-45deg);
+	top: 0;
+    /* Трансформация при открывании */
+	transition: top 0.15s linear, transform 0.15s ease-in 0.15s;
+}
